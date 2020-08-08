@@ -2,20 +2,20 @@
 
 from flask import Blueprint, jsonify, request, render_template #, flash, redirect
 
-from twittoff.model import db, parse_records, Old_Tweet
+from twittoff.model import db, Old_Tweet, parse_records
 
 tweet = Blueprint("tweet", __name__)
 
 @tweet.route("/tweets.json")
 def list_tweets():
-#    tweets = [
-#        {"id": 1, "cory_ken": "Motivate"},
-#        {"id": 2, "kyle_jen": "New Makeup"}
-#    ]
+    tweets = [
+        {"id": 1, "cory_ken": "Motivate"},
+        {"id": 2, "kyle_jen": "New Makeup"}
+    ]
 
-    tweet_records = Tweets.query.all()
-    print(tweet_records)
-    tweets = parse_records(tweet_records)
+    #tweet_records = Tweets.query.all()
+    #print(tweet_records)
+    #tweets = parse_records(tweet_records)
     return jsonify(tweets)
 
 @tweet.route("/tweets")
@@ -26,7 +26,7 @@ def list_tweets_from_twitter():
     ]
 #    tweet_records = Tweets.query.all()
 #    tweets = parse_records(tweet_records)
-    return render_template("tweets.html", message="What are they tweeting about?", tweets=tweets)
+    return render_template("tweets.html", tweets=tweets)
 
 
 @tweet.route("/tweets/new")
