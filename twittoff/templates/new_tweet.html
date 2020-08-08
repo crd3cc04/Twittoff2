@@ -1,0 +1,26 @@
+
+<!-- twittoff/templates/new_tweet.html -->
+
+{% extends "layout.html" %}
+
+{% block content %}
+
+    <h1>New Tweet Page</h1>
+
+    <p>Please fill out the form and submit to create a new tweet!</p>
+
+    <form action="/tweets/create" method="POST">
+
+        <label>Tweet:</label>
+        <input type="text" name="tweets" placeholder="What Are They Tweeting About?" value="What Are They Tweeting About?">
+
+        <label>User:</label>
+        <select name="user_name">
+          <option value="Cory_Ken">Cory_Ken</option>
+          <option value="Kyle_Jen">Kyle_Jen</option>
+          <option value="Elon_Mus">Elon_Mus</option>
+        </select>
+
+        <button>Submit</button>
+    </form>
+{% endblock %}
