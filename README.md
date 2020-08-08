@@ -2,26 +2,41 @@
 Python code to creating a web application using Flask
 
 ## Setup
-Open anaconda and close out all enviornment: conda deactivate
-Get directory you want the git repo to be housed: cd Desktop
+Open anaconda and close out all enviornment: 
+```sh
+conda deactivate
+```
+
+Get directory you want the git repo to be housed: 
+```sh
+cd Desktop
+```
 
 Instruction for git clone:
+```sh
 Create git repo; copy/paste http link in anaconda: git clone https://github.com/crd3cc04/Twittoff2.git 
+```
 
 Go to repo directory: 
+```sh
 cd Twittoff2
+```
 
 Open VS Code: 
+```sh
 code .
+```
 
 Instructions for virtual environment and packages install:
+```sh
 create enviornment: python -m venv pipenv
 
 install packages: pip install Flask Flask-SQLAlchemy Flask-Migrate
 
 activate envirornment: pipenv\Scripts\activate
+```
 
-Instructions to setup database
+Instructions to setup database:
 ```sh
 flask db init #> generate app/migrations dir. will not need to run again once already ran
 
