@@ -50,3 +50,14 @@ flask db upgrade
 ```sh
 Deploy Flask App Itself: FLASK_APP_twittoff.py
 Run Flask App: flask run
+```
+
+## Usage for Basilica usage
+```sh
+Import packages Requests, Basilica, and Twitter API access: 
+pipenv install python-dotenv requests basilica tweepy
+```
+```sh
+Basilica implementation: 
+get API Key from the Basilica website
+```
