@@ -52,7 +52,7 @@ Deploy Flask App Itself: FLASK_APP_twittoff.py
 Run Flask App: flask run
 ```
 
-## Usage for Basilica usage
+## Usage for Basilica and Tweepy usage
 ```sh
 Import packages Requests, Basilica, and Twitter API access: 
 pipenv install python-dotenv requests basilica tweepy
@@ -60,4 +60,14 @@ pipenv install python-dotenv requests basilica tweepy
 ```sh
 Basilica implementation: 
 get API Key from the Basilica website
+```
+```sh
+Twitter implementation:
+get API, token, and secret tokens from Twitter Dev website. Note that tokens and sercet keys can be otained from the init file for future reference
+```
+## Differnt Environments for Flask and Tweepy to work
+```sh
+To use Flask application you will need to create pip env 
+
+To use Tweepy application you will need to use powershell
 ```

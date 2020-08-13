@@ -19,39 +19,43 @@ api = tweepy.API(auth)
 print(type(api))
 # import pprint from pprint to get a single column list of what the directory has...
 
-user = api.get_user("elonmusk")
-print(type(user)) #<class 'tweepy.models.User'>
+#user = api.get_user("elonmusk")
+#print(type(user)) #<class 'tweepy.models.User'>
 
-# For example on a user in Twitter....
-print("------------------")
-print("USER")
-user = api.get_user("elonmusk")
-print(type(user))
-print(user.screen_name)
-print(user.id)
-print(user.statuses_count)
 
-print("-------------------")
-print("STATUSES")
-# Actual code to retrieve users tweets
-#statuses = api.user_timeline("elonmusk", count=25) #how ever many tweets you want to pull
-#for status in statuses:
-#    print("---")
-#    print(status.text)
+if __name__ == "__main__":
 
-# If you are needing to add more parameters and are narrowing down linespace.....
-statuses = api.user_timeline("elonmusk", tweet_mode="extended", count=35, exclude_replies=True, include_rts=False)
-for status in statuses:
-    print("-----")
+    screen_name = input("Flease choose a screen_name")
+    # For example on a user in Twitter....
+    print("------------------")
+    print("USER")
+    user = api.get_user("elonmusk")
+    print(type(user))
+    print(user.screen_name)
+    print(user.id)
+    print(user.statuses_count)
+
+    print("-------------------")
+    print("STATUSES")
+    # Actual code to retrieve users tweets
+    #statuses = api.user_timeline("elonmusk", count=25) #how ever many tweets you want to pull
+    #for status in statuses:
+    #    print("---")
+    #    print(status.text)
+
+    # If you are needing to add more parameters and are narrowing down linespace.....
+    statuses = api.user_timeline("elonmusk", tweet_mode="extended", count=35, exclude_replies=True, include_rts=False) #Make sure that watch out for parameters; they will filter out how many tweets you are trying to call for.....
+    for status in statuses:
+        print("-----")
+        print(status.full_text)
+
+    status = statuses[0]
+    print(type(status)) #<class 'tweepy.models.Status'>
+
+    print(status.id)
     print(status.full_text)
+    #breakpoint()
 
-status = statuses[0]
-print(type(status)) #<class 'tweepy.models.Status'>
-
-print(status.id)
-print(status.full_text)
-#breakpoint()
-
-#To get the json file for the statuses use this code....
-#from pprint import pprint
-#pprint(status._json)
+    #To get the json file for the statuses use this code....
+    #from pprint import pprint
+    #pprint(status._json)

@@ -3,7 +3,7 @@ from flask import Flask
 from twittoff.model import db, migrate
 from twittoff.routes.welcome import welcome 
 from twittoff.routes.tweet import tweet
-#from app_dev.routes.twitter_routes import twitter_routes
+from twittoff.routes.twitter import twitter
 
 
 #DATABASE_URI = "sqlite:///twitoff2.db" # using relative filepath
@@ -20,7 +20,7 @@ def create_app():
 
     app.register_blueprint(welcome)
     app.register_blueprint(tweet)
-    #app.register_blueprint(twitter_routes)
+    app.register_blueprint(twitter)
     return app
 
 if __name__ == "__main__":
