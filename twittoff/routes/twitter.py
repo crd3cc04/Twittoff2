@@ -2,7 +2,7 @@
 
 from flask import Blueprint, jsonify#, request, render_template #, flash, redirect
 from twittoff.services.twitter1 import api as twitter_api
-#from twittoff.model import db, Old_Tweet, parse_records
+from twittoff.model import db, User, Tweets,  parse_records
 
 twitter = Blueprint("twitter", __name__)
 
@@ -17,7 +17,9 @@ def fetch_user_data(screen_name):
     # TODO: fetch embedding for each tweet
 
     # TODO: store user info in database (w/ embeddings)
-
+    db_user = User("_______________")
+    db.session.add(db_user)
+    db.session.commit()
 
     #return f"FETCHED {screen_name} OK"
     return jsonify({"user": user._json, "num_tweets": len(statuses)})

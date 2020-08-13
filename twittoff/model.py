@@ -15,22 +15,22 @@ class Old_Tweet(db.Model):
 #    def __repr__(self):
 #        return f"<Old_Tweet {self.id} {self.user} {self.tweet}>"
 
-#class User(db.Model):
-#    id = db.Column(db.BigInteger, primary_key=True)
-#    screen_name = db.Column(db.String(128), nullable=False)
-#    name = db.Column(db.String)
-#    location = db.Column(db.String)
-#    followers_count = db.Column(db.Integer)
-    #latest_tweet_id = db.Column(db.BigInteger)
+class User(db.Model):
+    id = db.Column(db.BigInteger, primary_key=True)
+    screen_name = db.Column(db.String(128), nullable=False)
+    name = db.Column(db.String)
+    location = db.Column(db.String)
+    followers_count = db.Column(db.Integer)
+    #latest_tweet_id = db.Column(db.BigInteger) # if we want to store the lastest tweet from the users...
 
-#class Tweets(db.Model):
-#    id = db.Column(db.BigInteger, primary_key=True)
-#    user_id = db.Column(db.BigInteger, db.ForeignKey("user.id"))
-#    full_text = db.Column(db.String(500))
-    #embedding = db.Column(db.PickleType)
+class Tweets(db.Model):
+    id = db.Column(db.BigInteger, primary_key=True)
+    user_id = db.Column(db.BigInteger, db.ForeignKey("user.id"))
+    full_text = db.Column(db.String(500))
+    embedding = db.Column(db.PickleType)
 
-    #user = db.relationship("User", backref=db.backref("tweets", lazy=True))
-
+    user = db.relationship("User", backref=db.backref("tweets", lazy=True)) # This is the one-many corolation.....
+#make sure to migrate the tables by doing the migrate and upgrade.....
 
 def parse_records(database_records):
     parsed_records = []
