@@ -3,6 +3,7 @@
 from flask import Blueprint, jsonify#, request, render_template #, flash, redirect
 from twittoff.services.twitter1 import api as twitter_api
 from twittoff.model import db, User, Tweets,  parse_records
+from twittoff.services.basilica1 import connection as basilica_connection
 
 twitter = Blueprint("twitter", __name__)
 
@@ -39,10 +40,13 @@ def fetch_user_data(screen_name):
         db_tweet = Tweets.query.get(status.id) or Tweets(id=status.id)
         db_tweet.user_id = status.author.id # or db_user.id
         db_tweet.full_text = status.full_text
-        #embedding = basilica_client.embed_sentence(status.full_text, model="twitter") # todo: prefer to make a single request to basilica with all the tweet texts, instead of a request per tweet
+
+        # fetching corresponding embedding
+
+        embedding = basilica_connection.embed_sentence(status.full_text, model="twitter") # todo: prefer to make a single request to basilica with all the tweet texts, instead of a request per tweet
         #embedding = embeddings[counter]
-        #print(len(embedding))
-        #db_tweet.embedding = embedding
+        print(len(embedding))
+        db_tweet.embedding = embedding
         db.session.add(db_tweet)
         #counter+=1
 
