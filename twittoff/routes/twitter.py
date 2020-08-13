@@ -26,12 +26,14 @@ def fetch_user_data(screen_name):
     # fetch their tweets
 
     statuses = twitter_api.user_timeline(screen_name, tweet_mode="extended", count=35, exclude_replies=True, include_rts=False)
-    # TODO: fetch embedding for each tweet
 
+    # fetch embedding for each tweet
+
+    embeddings = basilica_connection.embed_sentences(statuses, model="twitter")
 
     # store tweets in database (w/ embeddings)
 
-    # counter = 0
+    #counter = 0
     for status in statuses:
         print(status.full_text)
         print("----")
