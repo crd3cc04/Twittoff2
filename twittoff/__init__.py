@@ -4,6 +4,7 @@ from twittoff.model import db, migrate
 from twittoff.routes.welcome import welcome 
 from twittoff.routes.tweet import tweet
 from twittoff.routes.twitter import twitter
+from twittoff.routes.admin_routes import admin_routes #registering admin functions to create or delete tables and/or database....
 
 
 #DATABASE_URI = "sqlite:///twitoff2.db" # using relative filepath
@@ -21,6 +22,8 @@ def create_app():
     app.register_blueprint(welcome)
     app.register_blueprint(tweet)
     app.register_blueprint(twitter)
+    app.register_blueprint(admin_routes)
+
     return app
 
 if __name__ == "__main__":
