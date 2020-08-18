@@ -1,6 +1,6 @@
 #twittoff/routes/tweet.py
 
-from flask import Blueprint, jsonify, request, render_template #, flash, redirect
+from flask import Blueprint, jsonify, request, render_template , flash, redirect
 
 from twittoff.model import db, Old_Tweet, parse_records
 

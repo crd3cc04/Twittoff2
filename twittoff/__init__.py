@@ -13,6 +13,7 @@ DATABASE_URI = "sqlite:///C:\\Users\\Lola\\Desktop\\Twittoff2\\twittoff\\twitoff
 
 def create_app():
     app = Flask(__name__)
+    app.secret_key = "him1203"
 
     app.config["SQLALCHEMY_DATABASE_URI"] = DATABASE_URI
     app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
